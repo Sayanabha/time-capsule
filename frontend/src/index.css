@@ -1,0 +1,44 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #f5f0e8;
+  --ink: #1a1612;
+  --warm: #8b5e3c;
+  --muted: #9e9690;
+  --border: #ddd8cf;
+  --closed: #c0392b;
+  --open: #2e7d5e;
+}
+
+html { font-size: 16px; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+
+input, textarea, select {
+  font-family: 'DM Sans', sans-serif;
+}
+
+::selection {
+  background: var(--warm);
+  color: var(--cream);
+}

@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Database
+backend/capsule.db
+
+# Uploads (user content, don't commit)
+backend/uploads/
+
+# Environment
+.env
+.env.local
+
+# Build output
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
