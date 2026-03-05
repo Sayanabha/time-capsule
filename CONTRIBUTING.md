@@ -14,7 +14,7 @@ Glad you're here. This is a small project with a straightforward purpose: help c
 
 ## Setup
 ```bash
-git clone https://github.com/yourname/time-capsule.git
+git clone https://github.com/Sayanabha/time-capsule.git
 cd time-capsule
 
 cd backend && npm install
