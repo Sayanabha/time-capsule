@@ -25,7 +25,7 @@ export default function MemoryForm({ businessId, onAdded }) {
     fd.append('story', form.story)
     if (file) fd.append('image', file)
     try {
-      await axios.post(`/api/memories/${businessId}`, fd)
+      await api.postForm(`/api/memories/${businessId}`, fd)
       setForm({ author: '', story: '' })
       setFile(null)
       onAdded()
@@ -61,13 +61,9 @@ export default function MemoryForm({ businessId, onAdded }) {
         onClick={submit}
         disabled={loading}
         style={{
-          background: 'var(--ink)',
-          color: 'var(--cream)',
-          border: 'none',
-          padding: '0.75rem 2rem',
-          fontSize: '0.85rem',
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
+          background: 'var(--ink)', color: 'var(--cream)', border: 'none',
+          padding: '0.75rem 2rem', fontSize: '0.85rem',
+          letterSpacing: '0.08em', textTransform: 'uppercase',
           opacity: loading ? 0.6 : 1,
         }}
       >

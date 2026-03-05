@@ -10,8 +10,8 @@ export default function BusinessPage() {
   const [business, setBusiness] = useState(null)
   const [memories, setMemories] = useState([])
 
-  const loadBusiness = () => axios.get(`/api/businesses/${id}`).then(r => setBusiness(r.data))
-  const loadMemories = () => axios.get(`/api/memories/${id}`).then(r => setMemories(r.data))
+  const loadBusiness = () => api.get(`/api/businesses/${id}`).then(data => setBusiness(data))
+  const loadMemories = () => api.get(`/api/memories/${id}`).then(data => setMemories(data))
 
   useEffect(() => { loadBusiness(); loadMemories() }, [id])
 
@@ -27,7 +27,6 @@ export default function BusinessPage() {
 
   return (
     <main style={{ maxWidth: '720px', margin: '0 auto', padding: '4rem 2rem' }}>
-      {/* Back */}
       <button
         onClick={() => navigate('/')}
         style={{ background: 'none', border: 'none', color: 'var(--muted)', fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2.5rem', padding: 0 }}
@@ -35,7 +34,6 @@ export default function BusinessPage() {
         ← Back
       </button>
 
-      {/* Business Header */}
       <div style={{ marginBottom: '3rem', paddingBottom: '2rem', borderBottom: '1px solid var(--border)' }}>
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '0.5rem' }}>
           <span style={{
@@ -74,7 +72,6 @@ export default function BusinessPage() {
         )}
       </div>
 
-      {/* Capsule opening message */}
       {closed && (
         <div style={{
           background: '#fff8f0',
@@ -90,7 +87,6 @@ export default function BusinessPage() {
         </div>
       )}
 
-      {/* Memories */}
       <h2 style={{ fontSize: '1.3rem', marginBottom: '1.5rem' }}>
         {memories.length} {memories.length === 1 ? 'Memory' : 'Memories'}
       </h2>
@@ -103,7 +99,6 @@ export default function BusinessPage() {
 
       {memories.map(m => <MemoryCard key={m.id} memory={m} />)}
 
-      {/* Only allow adding memories if open */}
       {!closed && <MemoryForm businessId={id} onAdded={loadMemories} />}
     </main>
   )

@@ -6,8 +6,8 @@ export default function Archive() {
   const [closed, setClosed] = useState([])
 
   useEffect(() => {
-    api.get('/api/businesses').then(r =>
-      setClosed(r.data.filter(b => b.status === 'closed'))
+    api.get('/api/businesses').then(data =>
+      setClosed(data.filter(b => b.status === 'closed'))
     )
   }, [])
 

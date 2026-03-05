@@ -24,7 +24,7 @@ export default function Home() {
   const [showForm, setShowForm] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const load = () => axios.get('/api/businesses').then(r => setBusinesses(r.data))
+  const load = () => api.get('/api/businesses').then(data => setBusinesses(data))
 
   useEffect(() => { load() }, [])
 
@@ -46,7 +46,6 @@ export default function Home() {
 
   return (
     <main style={{ maxWidth: '860px', margin: '0 auto', padding: '4rem 2rem' }}>
-      {/* Hero */}
       <div style={{ marginBottom: '4rem' }}>
         <p style={{ fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '1rem' }}>
           A living archive
@@ -73,7 +72,6 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Add Business Form */}
       {showForm && (
         <div style={{ border: '1px solid var(--border)', padding: '2rem', marginBottom: '3rem', background: 'white' }}>
           <h3 style={{ fontFamily: 'Playfair Display', marginBottom: '1.25rem' }}>Register a local business</h3>
@@ -107,7 +105,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* Open Businesses */}
       {open.length > 0 && (
         <section style={{ marginBottom: '3rem' }}>
           <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '1.25rem' }}>
@@ -119,7 +116,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* Closed Businesses */}
       {closed.length > 0 && (
         <section>
           <p style={{ fontSize: '0.7rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '1.25rem' }}>
