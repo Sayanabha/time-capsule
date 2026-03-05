@@ -7,6 +7,9 @@ cd frontend && npm install
 echo "Building frontend..."
 npm run build
 
+echo "Verifying dist folder..."
+ls -la dist/
+
 echo "Installing backend dependencies..."
 cd ../backend && npm install
 
