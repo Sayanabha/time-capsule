@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { api } from '../api'
 
 const S = {
   card: (closed) => ({
@@ -58,7 +58,7 @@ export default function BusinessCard({ business, onDeleted }) {
     e.preventDefault()
     e.stopPropagation()
     if (!confirm(`Delete "${business.name}"? This cannot be undone.`)) return
-    await axios.delete(`/api/businesses/${business.id}`)
+    await api.delete(`/api/businesses/${b.id}`)
     onDeleted()
   }
 

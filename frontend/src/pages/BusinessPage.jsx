@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { api } from '../api'
 import MemoryCard from '../components/MemoryCard'
 import MemoryForm from '../components/MemoryForm'
 
@@ -17,7 +17,7 @@ export default function BusinessPage() {
 
   const closeBusiness = async () => {
     if (!confirm(`Mark "${business.name}" as permanently closed? This will open the time capsule.`)) return
-    await axios.patch(`/api/businesses/${id}/close`)
+    await api.patch(`/api/businesses/${id}/close`)
     loadBusiness()
   }
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { api } from '../api'
 import BusinessCard from '../components/BusinessCard'
 
 const inp = {
@@ -32,7 +32,7 @@ export default function Home() {
     if (!form.name.trim()) return
     setLoading(true)
     try {
-      await axios.post('/api/businesses', form)
+      await api.post('/api/businesses', form)
       setForm({ name: '', address: '', category: '', description: '' })
       setShowForm(false)
       load()

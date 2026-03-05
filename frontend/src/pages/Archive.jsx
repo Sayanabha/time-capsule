@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { api } from '../api'
 
 export default function Archive() {
   const [closed, setClosed] = useState([])
 
   useEffect(() => {
-    axios.get('/api/businesses').then(r =>
+    api.get('/api/businesses').then(r =>
       setClosed(r.data.filter(b => b.status === 'closed'))
     )
   }, [])
